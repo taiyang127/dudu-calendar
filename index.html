@@ -167,16 +167,6 @@ function render() {
     ${monthStats > 0 ? `<div class="stats">本月 ${monthStats} 场直播</div>` : ''}
   </div>`;
 
-  // Tags
-  if (monthStats > 0) {
-    html += '<div class="tags">';
-    for (const [tag, count] of Object.entries(tagCounts)) {
-      const s = TAG_COLORS[tag] || {bg:"#3a3a3a",text:"#ccc"};
-      html += `<div class="tag" style="background:${s.bg};color:${s.text};border:1px solid ${s.text}22">${tag} ×${count}</div>`;
-    }
-    html += '</div>';
-  }
-
   // Weekdays
   html += '<div class="weekdays">';
   WEEKDAYS.forEach(w => { html += `<div>${w}</div>`; });
@@ -236,21 +226,6 @@ function render() {
   // Backdrop
   if (state.selected) {
     html += '<div class="backdrop" onclick="closePopup()"></div>';
-  }
-
-  // Event list (when no selection)
-  if (monthStats > 0 && !state.selected) {
-    html += '<div class="list"><div class="list-title">本月直播</div>';
-    events.forEach(ev => {
-      const s = getTagStyle(ev.tags);
-      const hasP = ev.photos && ev.photos.length > 0;
-      html += `<div class="list-item" onclick="selectDay(${ev.day})">`;
-      html += `<div class="list-day" style="color:${s.text}">${ev.day}</div>`;
-      html += `<div class="list-info"><div class="list-info-title">${ev.title}</div><div class="list-info-sub">${ev.session} · 晚上</div></div>`;
-      if (hasP) html += '<div style="width:6px;height:6px;border-radius:50%;background:#7ce8a8"></div>';
-      html += '<div class="list-arrow">›</div></div>';
-    });
-    html += '</div>';
   }
 
   if (monthStats === 0) html += '<div class="empty">本月暂无直播记录</div>';
