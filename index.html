@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>肚肚直播日历 · 浅蓝版</title>
+<title>肚肚直播日历</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&display=swap" rel="stylesheet">
 <style>
 * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
@@ -236,9 +236,9 @@ function render() {
   html += '<div style="margin-top:32px"><div style="font-size:10px;color:rgba(44,62,80,0.4);margin-bottom:12px;letter-spacing:5px;text-align:center">肚肚心头好</div>';
   html += '<div id="book-banner" style="overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;display:flex;gap:12px;padding-bottom:8px;scrollbar-width:none">';
   duduBooks.forEach(function(book){
-    html += '<div style="min-width:85%;scroll-snap-align:center;background:rgba(255,255,255,0.7);border-radius:14px;padding:14px;border:1px solid rgba(147,190,215,0.15);display:flex;gap:12px;flex-shrink:0">';
+    html += '<div style="min-width:88%;scroll-snap-align:center;background:rgba(255,255,255,0.7);border-radius:14px;padding:14px;border:1px solid rgba(147,190,215,0.15);display:flex;gap:12px;flex-shrink:0">';
     html += '<img src="' + book.img + '" style="width:90px;height:120px;object-fit:cover;border-radius:8px;flex-shrink:0">';
-    html += '<div style="flex:1;display:flex;flex-direction:column;justify-content:center"><div style="font-size:13px;font-weight:700;color:#2c3e50;margin-bottom:4px">' + book.title + '</div><div style="font-size:10px;color:rgba(44,62,80,0.5);margin-bottom:8px">' + book.author + '</div><div style="font-size:11px;color:rgba(44,62,80,0.6);line-height:1.6">' + book.desc + '</div></div>';
+    html += '<div style="flex:1;display:flex;flex-direction:column;justify-content:center"><div style="font-size:13px;font-weight:700;color:#2c3e50;margin-bottom:4px">' + book.title + '</div><div style="font-size:10px;color:rgba(44,62,80,0.5);margin-bottom:8px">' + book.author + '</div><div style="font-size:11px;color:rgba(44,62,80,0.6);line-height:1.6;word-break:break-all">' + book.desc + '</div></div>';
     html += '</div>';
   });
   html += '</div>';
